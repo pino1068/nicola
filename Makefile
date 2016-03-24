@@ -8,7 +8,7 @@ war: test
 	rm -fr dist
 
 test: build
-	java -classpath lib/groovy-2.4.5.jar:classes Main
+	java -classpath lib/groovy-2.4.5.jar:classes nicola.Main
 
 build:
 	mkdir -pv classes
