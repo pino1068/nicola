@@ -1,9 +1,13 @@
-.PHONY: build test clean run war
+.PHONY: build test run war deploy clean
+
+deploy: war
+	cp nicola.war /usr/local/jetty/webapps	
 
 war: test
 	mkdir -pv dist
-	cp -a classes dist/
 	cp -a web/* dist
+	cp -a classes dist/WEB-INF
+	cp -a lib dist/WEB-INF
 	jar cvf nicola.war -C dist/ .
 	rm -fr dist
 
