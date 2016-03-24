@@ -1,8 +1,5 @@
 .PHONY: build test run war deploy clean
 
-deploy: war
-	cp nicola.war /usr/local/jetty/webapps	
-
 war: test
 	mkdir -pv dist
 	cp -a web/* dist
@@ -19,6 +16,9 @@ build:
 	find . -name "*.groovy" > sources
 	groovyc -d classes @sources
 	rm -fr sources
+
+deploy: war
+	cp nicola.war /usr/local/jetty/webapps	
 
 clean:
 	rm -fr classes
